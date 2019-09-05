@@ -8,7 +8,7 @@
       validate-status="success"
     >
       <a-input
-        id="packageID"
+        id="id"
         placeholder="201909050001"
         v-model="packageID"
       />
@@ -34,7 +34,7 @@
       validate-status="success"
     >
       <a-input
-        id="tel"
+        id="phone"
         placeholder="13112341234"
         v-model="tel"
       />
@@ -59,9 +59,32 @@
   </a-form>
 </template>
 <script>
+ const columns = [
+  {
+    title: "运单号",
+    dataIndex: "id"
+  },
+  {
+    title: "收件人",
+    dataIndex: "name"
+  },
+  {
+    title: "电话",
+    dataIndex: "phone"
+  },
+  {
+    title: "状态",
+    dataIndex: "status"
+  },
+  {
+    title: "预约时间",
+    dataIndex: "date"
+  }];
 export default {
+
   data () {
     return {
+      columns,
       labelCol: {
         xs: { span: 24 },
         sm: { span: 5 }
@@ -79,6 +102,14 @@ export default {
       this.$store.dispatch('submit', values).then(response => {
         console.log(values)
       })
+    },
+    signPackage:function(data){
+      this.$message.success("success");
+      data.status = "已签收"
+      this.$store.dispatch("signPackage", data);
+    },
+    unsignPackage:function () {
+      console.error("取消");
     }
   }
 }

@@ -10,6 +10,7 @@
       <a-input
         id="packageID"
         placeholder="201909050001"
+        v-model="packageID"
       />
     </a-form-item>
 
@@ -20,8 +21,9 @@
       validate-status="success"
     >
       <a-input
-        id="packageID"
+        id="name"
         placeholder="林凌灵"
+        v-model="name"
       />
     </a-form-item>
 
@@ -32,10 +34,9 @@
       validate-status="success"
     >
       <a-input
-        id="packageID"
+        id="tel"
         placeholder="13112341234"
-        value="tel"
-
+        v-model="tel"
       />
     </a-form-item>
 
@@ -46,8 +47,9 @@
       validate-status="success"
     >
       <a-input
-        id="packageID"
+        id="weight"
         placeholder="3KG"
+        v-model="weight"
       />
     </a-form-item>
 
